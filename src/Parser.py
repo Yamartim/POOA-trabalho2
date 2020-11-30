@@ -15,5 +15,5 @@ class ParserFactory:
     def create_downloader(self, name, html):
         if name == 'G1':
             return ParserG1(html)
-        elif name == 'G1':
+        elif name == 'UOL':
             return ParserUOL(html)
