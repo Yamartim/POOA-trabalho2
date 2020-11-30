@@ -12,7 +12,7 @@ class ParserUOL(Parser):
     pass
 
 class ParserFactory:
-    def create_downloader(self, name, html):
+    def create_parser(self, name, html):
         if name == 'G1':
             return ParserG1(html)
         elif name == 'UOL':
