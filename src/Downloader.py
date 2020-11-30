@@ -12,7 +12,7 @@ class Downloader():
 
 class DownloaderUrlLib(Downloader):
     def __init__(self, url: str):
-        super(url)
+        super().__init__(url)
     def download (self):
         ctx = ssl.create_default_context()
         ctx.check_hostname = False
