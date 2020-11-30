@@ -8,4 +8,4 @@ ctx.verify_mode = ssl.CERT_NONE
 html = urlopen('https://g1.globo.com/', context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser')
 
-print(soup.findAll())
+print(soup.findAll(id='bstn-launcher'))
