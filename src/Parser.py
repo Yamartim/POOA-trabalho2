@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 
-class Parser(html):
+class Parser():
     def __init__(self, html):
         self._html = html
-        _soup = BeautifulSoup(_html, 'html.parser')
+        _soup = BeautifulSoup(self._html, 'html.parser')
 
 class ParserG1(Parser):
     pass
