@@ -1,4 +1,4 @@
-from src import DownloaderFactory, ForwarderFactory
+from src import DownloaderFactory, ParserFactory, ForwarderFactory
 
 if __name__ == '__main__':
     
@@ -7,7 +7,11 @@ if __name__ == '__main__':
 
     html = downloader.download()
     
-    res = [['titulo1'], ['titulo2'], ['titulo3']]
+    fac = ParserFactory()
+    parser = fac.create_parser('G1', html = html)
+    #res = [['titulo1'], ['titulo2'], ['titulo3']]
+    res = parser.Get_News()
+
     fac = ForwarderFactory()
     forwarder = fac.create_forwarder('csv', results=res, fl=open('file.csv', 'w'))
 
