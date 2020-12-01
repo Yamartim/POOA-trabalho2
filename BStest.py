@@ -21,7 +21,4 @@ for titulo in result:
 
 print(lst)
 
-
-
-
-#print(type(soup.find(id='bstn-launcher')))
+#print(type(result[0]))

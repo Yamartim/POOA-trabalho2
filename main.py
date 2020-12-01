@@ -1,7 +1,10 @@
 from src import DownloaderFactory, ParserFactory, ForwarderFactory
 
-URL = 'https://g1.globo.com'
-#URL = 'https://www.uol.com.br'
+#URL = 'https://g1.globo.com'
+URL = 'https://www.uol.com.br'
+
+OUTPUT = 'stdout'
+#OUTPUT = 'csv'
 
 if __name__ == '__main__':
     
@@ -16,7 +19,11 @@ if __name__ == '__main__':
     res = parser.get_news()
 
     fac = ForwarderFactory()
-    forwarder = fac.create_forwarder('csv', results=res, fl=open('file.csv', 'w'))
+
+    if OUTPUT == 'csv':
+        forwarder = fac.create_forwarder(OUTPUT, results=res, fl=open('file.csv', 'w'))
+    else:
+        forwarder = fac.create_forwarder(OUTPUT, results=res)
 
     forwarder.forward()
 

@@ -41,7 +41,8 @@ class ForwarderStdout(Forwarder):
         super().__init__(results)
     def forward(self):
         "to print results"
-        print (self._results)
+        for result in self._results:
+            print (result.find(text = True))
 
 '''
 Returns the correct forwarder class depending on the name param
