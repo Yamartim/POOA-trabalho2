@@ -6,7 +6,7 @@ class Parser():
         self._html = html
         self._soup = BeautifulSoup(self._html, 'html.parser')
     
-    def Get_News(self):
+    def get_news(self):
         lst = list()
         for title in self._result:
             lst.append(title.find(text = True))

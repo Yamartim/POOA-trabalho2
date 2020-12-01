@@ -1,7 +1,7 @@
 from src import DownloaderFactory, ParserFactory, ForwarderFactory
 
-#URL = 'https://g1.globo.com'
-URL = 'https://www.uol.com.br'
+URL = 'https://g1.globo.com'
+#URL = 'https://www.uol.com.br'
 
 if __name__ == '__main__':
     
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     fac = ParserFactory()
     parser = fac.create_parser(URL, html = html)
     #res = [['titulo1'], ['titulo2'], ['titulo3']]
-    res = parser.Get_News()
+    res = parser.get_news()
 
     fac = ForwarderFactory()
     forwarder = fac.create_forwarder('csv', results=res, fl=open('file.csv', 'w'))
