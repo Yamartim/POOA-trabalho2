@@ -1,7 +1,4 @@
-Download da páginas (urllib, download de maneiras diferentes)
-classDownloader 
+## Explicação
 
-Parsing - dependente de site de notícias -> (pegar o arquivo html e interpretar dado o tipo do site de notícias)
-(Estadão, Globo, UOL) -> nosso tipo de informação
+O código possuí 3 principais funcionalidades que são dividas entre 3 classes:
 
-Parser (nosso tipo -> output correto)
