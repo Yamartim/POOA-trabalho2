@@ -28,21 +28,27 @@ class ForwarderCSV(Forwarder):
     def forward(self):
         "Creates csv writter and write every list item as a row"
         wr = csv.writer(self._file, quoting=csv.QUOTE_ALL)
-        wr.writerows(self._results)
+        for result in self._results:
+            wr.writerow([result])
 
 class ForwarderStdout(Forwarder):
     '''
     Class to foward a list on stdout
     '''
-    def __init__(self, results):
+    def __init__(self, results, fl=None):
         '''
         @param: results the list of results
+        @param: fl opened stream, not used in this output method
         '''
         super().__init__(results)
     def forward(self):
         "to print results"
         for result in self._results:
-            print (result.find(text = True))
+            print (result)
+
+'''
+A new fowarder - inheriting class can be written if you wish to add another possible output
+'''
 
 '''
 Returns the correct forwarder class depending on the name param
@@ -53,3 +59,7 @@ class ForwarderFactory():
             return ForwarderCSV(results, **kwargs)
         elif name == 'stdout':
             return ForwarderStdout(results, **kwargs)
+        """ 
+        to return a new class simply add another elif statement and compare the 
+        name parameter to the new OUTPUT constant set in main.py
+         """

@@ -30,9 +30,18 @@ class DownloaderUrlLib(Downloader):
         return urlopen(self._url, context=ctx).read()
 
 '''
+A new downloader - inheriting class can be written for cases in which
+the UrlLib class does not suffice
+'''
+
+'''
 Returns the correct downloader class depending on the name param
 '''
 class DownloaderFactory:
     def create_downloader(self, name, url):
         if name == 'urllib':
             return DownloaderUrlLib(url)
+        """ 
+        to return a new class simply add another elif statement and compare the 
+        name parameter to the new DOWNLOAD constant set in main.py
+        """

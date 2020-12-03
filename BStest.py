@@ -1,4 +1,4 @@
-#script para propositos de teste
+#script for testing purposes of the BeautifulSoup html parsing library
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -9,6 +9,9 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 #html = urlopen('https://g1.globo.com/', context=ctx).read() #G1
 html = urlopen('https://www.uol.com.br/', context=ctx).read() #UOL
+
+print(type(html))
+
 
 soup = BeautifulSoup(html, 'html.parser')
 
